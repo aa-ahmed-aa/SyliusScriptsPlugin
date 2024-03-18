@@ -1,0 +1,2 @@
+# SyliusScriptsPlugin
+Sylius scripts plugin
