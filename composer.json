@@ -1,17 +1,16 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "fifty-deg/sylius-scripts-plugin",
     "type": "sylius-plugin",
-    "description": "Acme example plugin for Sylius.",
+    "description": "A plugin that let's you inject scripts and styles into your storefront from the admin panel.",
     "keywords": [
         "sylius",
-        "sylius-plugin"
+        "sylius-plugin",
+        "fiftydeg"
     ],
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "sylius/sylius": "^1.12",
-        "sylius/mailer-bundle":  "^1.8 || ^2.0@beta",
-        "symfony/webpack-encore-bundle": "^1.15"
+        "sylius/sylius": "^1.11.0"
     },
     "require-dev": {
         "behat/behat": "^3.6.1",
@@ -55,17 +54,14 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.12-dev"
-        },
         "symfony": {
             "require": "^5.4 || ^6.0"
         }
     },
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "FiftyDeg\\SyliusScriptsPlugin\\": "src/",
+            "Tests\\FiftyDeg\\SyliusScriptsPlugin\\": "tests/"
         }
     },
     "autoload-dev": {
