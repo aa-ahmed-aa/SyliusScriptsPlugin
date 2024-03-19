@@ -29,7 +29,7 @@ class DynamicWelcomePage extends SymfonyPage implements WelcomePageInterface
      */
     public function getRouteName(): string
     {
-        return 'fifty_deg_sylius_scripts_plugin_dynamic_welcome';
+        return 'fiftydeg_sylius_scripts_plugin_dynamic_welcome';
     }
 
     /**

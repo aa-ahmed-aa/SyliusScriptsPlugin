@@ -14,7 +14,7 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('fifty_deg_sylius_scripts_plugin');
+        $treeBuilder = new TreeBuilder('fiftydeg_sylius_scripts_plugin');
         $rootNode = $treeBuilder->getRootNode();
 
         return $treeBuilder;
