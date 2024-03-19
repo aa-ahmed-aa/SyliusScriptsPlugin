@@ -1,0 +1,10 @@
+app.fiftydeg_scripts_script_index:
+    resource: |
+        alias: fiftydeg.sylius_scripts_plugin.entity.script
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        except: ['show']
+        redirect: update
+        grid: fiftydeg.sylius_scripts_plugin.entity.script
+    type: sylius.resource
+    prefix: admin
