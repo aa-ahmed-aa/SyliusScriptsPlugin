@@ -9,18 +9,26 @@ use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceE
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class FiftyDegSyliusScriptsExtension extends AbstractResourceExtension implements PrependExtensionInterface
 {
     use PrependDoctrineMigrationsTrait;
 
-    /** @psalm-suppress UnusedVariable */
-    public function load(array $configs, ContainerBuilder $container): void
-    {
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
+    public const CONTAINER_PARAM_PREFIX = '_fd_scripts.';
 
-        $loader->load('services.xml');
+    /** @psalm-suppress UnusedVariable */
+    public function load(array $config, ContainerBuilder $container): void
+    {
+        $processedConfigs = $this->processConfiguration($this->getConfiguration([], $container), $config);
+
+        $fileLocator = new FileLocator(__DIR__ . '/../Resources/config');
+        $loader = new YamlFileLoader($container, $fileLocator);
+        $loader->load('bundle.yaml');
+
+        foreach ($processedConfigs as $key => $param) {
+            $container->setParameter(self::CONTAINER_PARAM_PREFIX . $key, $param);
+        }
     }
 
     public function prepend(ContainerBuilder $container): void
@@ -35,7 +43,7 @@ final class FiftyDegSyliusScriptsExtension extends AbstractResourceExtension imp
 
     protected function getMigrationsDirectory(): string
     {
-        return '@FiftyDegSyliusScriptsPlugin/migrations';
+        return '@FiftyDegSyliusScriptsPlugin/Migrations';
     }
 
     protected function getNamespacesOfMigrationsExecutedBefore(): array

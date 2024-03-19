@@ -1,9 +1,2 @@
-fiftydeg_sylius_scripts_plugin_shop:
-    resource: "@FiftyDegSyliusScriptsPlugin/config/shop_routing.yml"
-    prefix: /{_locale}
-    requirements:
-        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
-
-fiftydeg_sylius_scripts_plugin_admin:
-    resource: "@FiftyDegSyliusScriptsPlugin/config/admin_routing.yml"
-    prefix: /admin
+fiftydeg_sylius_scripts_plugin:
+    resource: "@FiftyDegSyliusScriptsPlugin/Resources/config/routes.yaml"
