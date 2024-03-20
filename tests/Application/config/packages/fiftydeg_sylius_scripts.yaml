@@ -1,0 +1,5 @@
+fifty_deg_sylius_scripts:
+    template_events: [
+        {label: 'Before body', value: 'sylius.shop.layout.before_body'},
+        {label: 'After body', value: 'sylius.shop.layout.after_body'},
+    ]

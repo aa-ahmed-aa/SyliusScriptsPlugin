@@ -17,6 +17,18 @@ final class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('fiftydeg_sylius_scripts_plugin');
         $rootNode = $treeBuilder->getRootNode();
 
+        $rootNode
+            ->children()
+                ->arrayNode('template_events')
+                    ->arrayPrototype()
+                        ->children()
+                            ->scalarNode('label')->cannotBeEmpty()->end()
+                            ->scalarNode('value')->cannotBeEmpty()->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+
         return $treeBuilder;
     }
 }
