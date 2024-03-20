@@ -1,5 +1,9 @@
 sylius_ui:
     events:
+    
+        sylius.shop.layout.head:
+            blocks:
+                template: "@FiftyDegSyliusScriptsPlugin/Shop/Scripts/_head.html.twig"
 
         sylius.shop.layout.before_body:
             blocks:
