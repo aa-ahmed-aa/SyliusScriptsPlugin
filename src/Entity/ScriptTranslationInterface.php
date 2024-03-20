@@ -9,4 +9,7 @@ use Sylius\Component\Resource\Model\TranslationInterface;
 
 interface ScriptTranslationInterface extends ResourceInterface, TranslationInterface {
 
+    public function getContent(): string;
+
+    public function setContent(string $content): self;
 }
