@@ -8,7 +8,7 @@ sylius_grid:
             fields:
                 name:
                     type: string
-                    label: sylius.ui.title
+                    label: sylius.ui.name
                     sortable: true
             sorting:
                 name: asc
