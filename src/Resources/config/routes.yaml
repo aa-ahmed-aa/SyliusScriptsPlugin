@@ -8,7 +8,6 @@ app.fiftydeg_scripts_script_index:
         grid: fiftydeg.sylius_scripts_plugin.entity.script
         vars:
             all:
-                subheader: app.ui.edit
                 templates:
                     form: "@FiftyDegSyliusScriptsPlugin/Admin/Form/_scriptsForm.html.twig"
     type: sylius.resource
