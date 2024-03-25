@@ -21,15 +21,15 @@ interface ScriptInterface extends ResourceInterface, TranslatableInterface {
      */
     public function setChannels(Collection $channels): self;
 
-    public function getName(): string;
+    public function getName(): ?string;
 
-    public function setName(string $name): self;
+    public function setName(?string $name): self;
 
-    public function getTemplateEvent(): string;
+    public function getTemplateEvent(): ?string;
 
-    public function setTemplateEvent(string $templateEvent): self;
+    public function setTemplateEvent(?string $templateEvent): self;
 
-    public function getContent(): string;
+    public function getContent(): ?string;
 
-    public function setContent(string $content): self;
+    public function setContent(?string $content): self;
 }

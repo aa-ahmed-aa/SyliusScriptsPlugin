@@ -28,7 +28,7 @@ class Script implements ScriptInterface
      *
      * @ORM\Column(type="integer")
      */
-    protected int $id;
+    protected $id;
 
     /**
      * @var Collection<int, ChannelInterface>
@@ -37,7 +37,7 @@ class Script implements ScriptInterface
      *
      * @ORM\JoinTable(name="fiftydeg_scripts_script_channel",
      *      joinColumns={@ORM\JoinColumn(name="channel_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="script_id", referencedColumnName="id", onDelete="CASCADE")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="script_id", referencedColumnName="id")}
      * )
      */
     #[FormType(ChannelChoiceType::class, [
@@ -51,13 +51,13 @@ class Script implements ScriptInterface
     #[FormType(TextType::class, ['required' => true])]
     #[NotBlank]
     #[NotNull]
-    protected string $name;
+    protected ?string $name;
 
     /** @ORM\Column(type="string", name="template_event", nullable=false) */
     #[FormType(TemplateEventChoiceType::class, ['required' => true])]
     #[NotBlank]
     #[NotNull]
-    protected string $templateEvent;
+    protected ?string $templateEvent;
 
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
@@ -70,7 +70,7 @@ class Script implements ScriptInterface
         $this->initializeTranslationsCollection();
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -93,31 +93,31 @@ class Script implements ScriptInterface
         return $this;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getTemplateEvent(): string
+    public function getTemplateEvent(): ?string
     {
         return $this->templateEvent;
     }
 
-    public function setTemplateEvent(string $templateEvent): self
+    public function setTemplateEvent(?string $templateEvent): self
     {
         $this->templateEvent = $templateEvent;
 
         return $this;
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
         /** @var ScriptTranslationInterface */
         $translation = $this->getTranslation();
@@ -125,7 +125,7 @@ class Script implements ScriptInterface
         return $translation->getContent();
     }
 
-    public function setContent(string $content): self
+    public function setContent(?string $content): self
     {
         /** @var ScriptTranslationInterface */
         $translation = $this->getTranslation();

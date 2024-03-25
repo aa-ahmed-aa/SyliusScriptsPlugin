@@ -24,25 +24,25 @@ class ScriptTranslation extends AbstractTranslation implements ScriptTranslation
      *
      * @ORM\Column(type="integer")
      */
-    protected int $id;
+    protected $id;
 
-    /** @ORM\Column(type="string", name="content", nullable=false) */
+    /** @ORM\Column(type="string", name="content", nullable=true) */
     #[FormType(TextareaType::class, ['required' => true])]
     #[NotBlank]
     #[NotNull]
-    protected string $content;
+    protected ?string $content;
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    public function setContent(string $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 
