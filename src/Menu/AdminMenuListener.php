@@ -12,7 +12,7 @@ final class AdminMenuListener
     {
         $menu = $event->getMenu();
 
-        $newSubmenu = $menu->getChild('fd_scripts') ?? $menu->addChild('fd_scripts')->setLabel('Scripts');
+        $newSubmenu = $menu->getChild('fd_scripts') ?? $menu->addChild('fd_scripts')->setLabel('Embed code');
 
         $newSubmenu
             ->addChild('shop-settings-fifty-deg-scripts-script-index', [
@@ -20,6 +20,7 @@ final class AdminMenuListener
             ])
             // TODO: add translation
             ->setLabel('Scripts')
+            ->setLabelAttribute('icon', 'code')
         ;
     }
 }
