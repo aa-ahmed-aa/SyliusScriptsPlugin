@@ -9,7 +9,8 @@ use Doctrine\ORM\Mapping;
 use FiftyDeg\SyliusScriptsPlugin\Entity\ScriptTranslation;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-class ScriptTranslationRepository extends EntityRepository implements ScriptTranslationRepositoryInterface {
+class ScriptTranslationRepository extends EntityRepository implements ScriptTranslationRepositoryInterface
+{
     public function __construct(EntityManagerInterface $entityManager)
     {
         /** @var class-string $className */

@@ -13,15 +13,14 @@ class FiftyDegScriptsExtension extends AbstractExtension
 {
     public function __construct(
         private ChannelContextInterface $channelContext,
-        private ScriptRepositoryInterface $scriptRepository
-    )
-    {
+        private ScriptRepositoryInterface $scriptRepository,
+    ) {
     }
 
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('fiftydeg_scripts', [$this, 'renderScripts'])
+            new TwigFunction('fiftydeg_scripts', [$this, 'renderScripts']),
         ];
     }
 
@@ -29,9 +28,9 @@ class FiftyDegScriptsExtension extends AbstractExtension
     {
         $scripts = $this->scriptRepository->findBy(['templateEvent' => $templateEvent]);
 
-        $rendered = "";
+        $rendered = '';
 
-        foreach($scripts as $script) {
+        foreach ($scripts as $script) {
             if (!$this->isEnabled($script)) {
                 continue;
             }

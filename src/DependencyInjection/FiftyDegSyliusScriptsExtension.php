@@ -64,7 +64,7 @@ final class FiftyDegSyliusScriptsExtension extends AbstractResourceExtension imp
 
             $events = [];
 
-            foreach($scriptsTemplateEvents as $scriptTemplateEvent) {
+            foreach ($scriptsTemplateEvents as $scriptTemplateEvent) {
                 $templateEventName = $scriptTemplateEvent['value'];
                 $blockHash = md5(serialize($scriptTemplateEvent));
 
@@ -72,17 +72,17 @@ final class FiftyDegSyliusScriptsExtension extends AbstractResourceExtension imp
                     'blocks' => [
                         'fiftydeg_script_' . $blockHash => [
                             'template' => '@FiftyDegSyliusScriptsPlugin/Shop/Scripts/_renderScript.html.twig',
-                            'priority' => PHP_INT_MAX,
+                            'priority' => \PHP_INT_MAX,
                             'context' => [
-                                'template_event' => $templateEventName
-                            ]
-                        ]
-                    ]
+                                'template_event' => $templateEventName,
+                            ],
+                        ],
+                    ],
                 ];
             }
 
             $container->prependExtensionConfig('sylius_ui', [
-                'events' => $events
+                'events' => $events,
             ]);
         } catch (Error $error) {
             // Nothing to do here

@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 
 /**
  * @ORM\Entity()
+ *
  * @ORM\Table(name="fiftydeg_scripts_script")
  */
 class Script implements ScriptInterface
@@ -119,7 +120,7 @@ class Script implements ScriptInterface
 
     public function getContent(): ?string
     {
-        /** @var ScriptTranslationInterface */
+        /** @var ScriptTranslationInterface $translation */
         $translation = $this->getTranslation();
 
         return $translation->getContent();
@@ -127,7 +128,7 @@ class Script implements ScriptInterface
 
     public function setContent(?string $content): self
     {
-        /** @var ScriptTranslationInterface */
+        /** @var ScriptTranslationInterface $translation */
         $translation = $this->getTranslation();
 
         $translation->setContent($content);
@@ -136,7 +137,7 @@ class Script implements ScriptInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function createTranslation(): ScriptTranslationInterface
     {

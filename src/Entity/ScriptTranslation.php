@@ -42,21 +42,22 @@ class ScriptTranslation extends AbstractTranslation implements ScriptTranslation
     {
         $content = $this->content;
 
-        return is_null($content)
+        return null === $content
             ? $content
             : $this->formatContent($content);
     }
 
     public function setContent(?string $content): self
     {
-        $this->content = is_null($content)
+        $this->content = null === $content
             ? $content
             : $this->sanitizeContent($content);
 
         return $this;
     }
 
-    private function sanitizeContent(?string $content): string {
+    private function sanitizeContent(?string $content): string
+    {
         $domIn = new DOMDocument();
         $domOut = new DOMDocument();
 
@@ -73,7 +74,8 @@ class ScriptTranslation extends AbstractTranslation implements ScriptTranslation
         return $domOut->saveHTML() ?: '';
     }
 
-    private function formatContent(string $content): string {
-        return str_replace("</script><script", "</script>\n\n<script", $content);
+    private function formatContent(string $content): string
+    {
+        return str_replace('</script><script', "</script>\n\n<script", $content);
     }
 }

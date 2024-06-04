@@ -9,7 +9,8 @@ use Sylius\Component\Channel\Model\ChannelInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 
-interface ScriptInterface extends ResourceInterface, TranslatableInterface {
+interface ScriptInterface extends ResourceInterface, TranslatableInterface
+{
 
     /**
      * @return Collection<int, ChannelInterface>

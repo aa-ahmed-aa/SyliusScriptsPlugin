@@ -6,6 +6,7 @@ namespace FiftyDeg\SyliusScriptsPlugin\Repository;
 
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
-interface ScriptTranslationRepositoryInterface extends RepositoryInterface {
+interface ScriptTranslationRepositoryInterface extends RepositoryInterface
+{
 
 }
