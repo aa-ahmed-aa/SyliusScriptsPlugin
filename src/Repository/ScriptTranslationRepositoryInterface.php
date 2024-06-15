@@ -8,5 +8,4 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 interface ScriptTranslationRepositoryInterface extends RepositoryInterface
 {
-
 }

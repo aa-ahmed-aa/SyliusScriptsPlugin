@@ -54,5 +54,4 @@ class TemplateEventChoiceType extends AbstractType
 
         return $options;
     }
-
 }

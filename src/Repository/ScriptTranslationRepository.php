@@ -19,5 +19,4 @@ class ScriptTranslationRepository extends EntityRepository implements ScriptTran
         $classMetadata = new Mapping\ClassMetadata($className);
         parent::__construct($entityManager, $classMetadata);
     }
-
 }

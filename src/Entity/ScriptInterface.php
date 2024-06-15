@@ -11,7 +11,6 @@ use Sylius\Component\Resource\Model\TranslatableInterface;
 
 interface ScriptInterface extends ResourceInterface, TranslatableInterface
 {
-
     /**
      * @return Collection<int, ChannelInterface>
      */

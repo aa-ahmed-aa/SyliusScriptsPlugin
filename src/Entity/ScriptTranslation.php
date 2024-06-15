@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 
 /**
  * @ORM\Entity()
+ *
  * @ORM\Table(name="fiftydeg_scripts_script_translation")
  */
 class ScriptTranslation extends AbstractTranslation implements ScriptTranslationInterface
