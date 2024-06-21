@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace FiftyDeg\SyliusScriptsPlugin\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Sylius\Component\Channel\Model\ChannelInterface;
+use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 

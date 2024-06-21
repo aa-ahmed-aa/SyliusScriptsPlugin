@@ -6,6 +6,8 @@ namespace FiftyDeg\SyliusScriptsPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use DOMDocument;
+use DOMNode;
+use Exception;
 use FiftyDeg\SyliusScriptsPlugin\Form\Attribute\FormType;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -26,7 +28,7 @@ class ScriptTranslation extends AbstractTranslation implements ScriptTranslation
      *
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    protected ?int $id;
 
     /** @ORM\Column(type="string", name="content", nullable=true) */
     #[FormType(TextareaType::class, ['required' => true])]
@@ -59,20 +61,29 @@ class ScriptTranslation extends AbstractTranslation implements ScriptTranslation
 
     private function sanitizeContent(?string $content): string
     {
-        $domIn = new DOMDocument();
-        $domOut = new DOMDocument();
+        try {
+            if (null === $content || '' === $content) {
+                return '';
+            }
 
-        $domIn->loadHTML($content);
+            $domIn = new DOMDocument();
+            $domOut = new DOMDocument();
 
-        $scriptElements = $domIn->getElementsByTagName('script');
+            $domIn->loadHTML($content);
 
-        foreach ($scriptElements as $scriptElement) {
-            $scriptNode = $domOut->importNode($scriptElement, true);
+            /** @var array<int,DOMNode> $scriptElements */
+            $scriptElements = $domIn->getElementsByTagName('script');
 
-            $domOut->append($scriptNode);
+            foreach ($scriptElements as $scriptElement) {
+                $scriptNode = $domOut->importNode($scriptElement, true);
+
+                $domOut->append($scriptNode);
+            }
+
+            return $domOut->saveHTML() ?: '';
+        } catch (Exception $e) {
+            return '';
         }
-
-        return $domOut->saveHTML() ?: '';
     }
 
     private function formatContent(string $content): string

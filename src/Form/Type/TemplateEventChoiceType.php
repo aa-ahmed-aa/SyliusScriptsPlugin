@@ -43,6 +43,7 @@ class TemplateEventChoiceType extends AbstractType
     {
         $options = [];
 
+        /** @var array<int, array<string,string>> $templateEvents */
         $templateEvents = $this->configLoader->getTemplateEvents();
 
         foreach ($templateEvents as $templateEvent) {

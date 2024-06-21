@@ -19,15 +19,22 @@ final class FiftyDegSyliusScriptsExtension extends AbstractResourceExtension imp
     public const CONTAINER_PARAM_PREFIX = '_fd_scripts.';
 
     /** @psalm-suppress UnusedVariable */
-    public function load(array $config, ContainerBuilder $container): void
+    public function load(array $configs, ContainerBuilder $container): void
     {
-        $processedConfigs = $this->processConfiguration($this->getConfiguration([], $container), $config);
+        $configuration = $this->getConfiguration([], $container);
+
+        if (null === $configuration) {
+            return;
+        }
+
+        /** @var array<array<string,array<string,array<string,string>>>> $processedConfig */
+        $processedConfig = $this->processConfiguration($configuration, $configs);
 
         $fileLocator = new FileLocator(__DIR__ . '/../Resources/config');
         $loader = new YamlFileLoader($container, $fileLocator);
         $loader->load('bundle.yaml');
 
-        foreach ($processedConfigs as $key => $param) {
+        foreach ($processedConfig as $key => $param) {
             $container->setParameter(self::CONTAINER_PARAM_PREFIX . $key, $param);
         }
     }
@@ -55,17 +62,19 @@ final class FiftyDegSyliusScriptsExtension extends AbstractResourceExtension imp
         ];
     }
 
-    protected function prependSyliusUi($container)
+    protected function prependSyliusUi(ContainerBuilder $container): void
     {
         try {
-            $configs = $container->getExtensionConfig($this->getAlias());
+            /** @var array<array<string,array<string,array<string,string>>>> $extensionConfig */
+            $extensionConfig = $container->getExtensionConfig($this->getAlias());
 
-            $scriptsTemplateEvents = $configs[0]['template_events'];
+            $scriptsTemplateEvents = $extensionConfig[0]['template_events'];
 
             $events = [];
 
             foreach ($scriptsTemplateEvents as $scriptTemplateEvent) {
                 $templateEventName = $scriptTemplateEvent['value'];
+
                 $blockHash = md5(serialize($scriptTemplateEvent));
 
                 $events[$templateEventName] = [

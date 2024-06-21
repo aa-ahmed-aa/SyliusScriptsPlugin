@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use FiftyDeg\SyliusScriptsPlugin\Form\Attribute\FormType;
 use FiftyDeg\SyliusScriptsPlugin\Form\Type\TemplateEventChoiceType;
 use Sylius\Bundle\ChannelBundle\Form\Type\ChannelChoiceType;
+use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -29,7 +30,7 @@ class Script implements ScriptInterface
      *
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    protected ?int $id;
 
     /**
      * @var Collection<int, ChannelInterface>

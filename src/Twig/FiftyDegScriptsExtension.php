@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FiftyDeg\SyliusScriptsPlugin\Twig;
 
+use FiftyDeg\SyliusScriptsPlugin\Entity\Script;
 use FiftyDeg\SyliusScriptsPlugin\Repository\ScriptRepositoryInterface;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Twig\Extension\AbstractExtension;
@@ -26,6 +27,7 @@ class FiftyDegScriptsExtension extends AbstractExtension
 
     public function renderScripts(string $templateEvent): ?string
     {
+        /** @var array<int,Script> $scripts */
         $scripts = $this->scriptRepository->findBy(['templateEvent' => $templateEvent]);
 
         $rendered = '';
@@ -35,13 +37,13 @@ class FiftyDegScriptsExtension extends AbstractExtension
                 continue;
             }
 
-            $rendered .= $script->getContent();
+            $rendered .= $script->getContent() ?? '';
         }
 
         return $rendered;
     }
 
-    private function isEnabled($script): bool
+    private function isEnabled(Script $script): bool
     {
         return $script->getChannels()->exists(function ($key, $scriptChannel) {
             $scriptChannelCode = $scriptChannel->getCode();
