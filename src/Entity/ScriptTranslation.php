@@ -80,7 +80,9 @@ class ScriptTranslation extends AbstractTranslation implements ScriptTranslation
                 $domOut->append($scriptNode);
             }
 
-            return $domOut->saveHTML() ?: '';
+            $html = $domOut->saveHTML();
+
+            return false !== $html ? $html : '';
         } catch (Exception $e) {
             return '';
         }
