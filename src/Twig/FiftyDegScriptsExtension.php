@@ -7,6 +7,7 @@ namespace FiftyDeg\SyliusScriptsPlugin\Twig;
 use FiftyDeg\SyliusScriptsPlugin\Entity\Script;
 use FiftyDeg\SyliusScriptsPlugin\Repository\ScriptRepositoryInterface;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
+use Sylius\Component\Core\Model\ChannelInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -43,13 +44,20 @@ class FiftyDegScriptsExtension extends AbstractExtension
         return $rendered;
     }
 
+    /**
+     * @SuppressWarnings("unused")
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
+     */
     private function isEnabled(Script $script): bool
     {
-        return $script->getChannels()->exists(function ($key, $scriptChannel) {
-            $scriptChannelCode = $scriptChannel->getCode();
-            $currentChannelCode = $this->channelContext->getChannel()->getCode();
+        return $script->getChannels()->exists(
+            function (int $key, ChannelInterface $scriptChannel) {
+                $scriptChannelCode = $scriptChannel->getCode();
+                $currentChannelCode = $this->channelContext->getChannel()->getCode();
 
-            return $scriptChannelCode === $currentChannelCode;
-        });
+                return $scriptChannelCode === $currentChannelCode;
+            },
+        );
     }
 }

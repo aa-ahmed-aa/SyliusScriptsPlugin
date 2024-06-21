@@ -68,14 +68,14 @@ final class FiftyDegSyliusScriptsExtension extends AbstractResourceExtension imp
             /** @var array<array<string,array<string,array<string,string>>>> $extensionConfig */
             $extensionConfig = $container->getExtensionConfig($this->getAlias());
 
-            $scriptsTemplateEvents = $extensionConfig[0]['template_events'];
+            $templateEvents = $extensionConfig[0]['template_events'];
 
             $events = [];
 
-            foreach ($scriptsTemplateEvents as $scriptTemplateEvent) {
-                $templateEventName = $scriptTemplateEvent['value'];
+            foreach ($templateEvents as $templateEvent) {
+                $templateEventName = $templateEvent['value'];
 
-                $blockHash = md5(serialize($scriptTemplateEvent));
+                $blockHash = md5(serialize($templateEvent));
 
                 $events[$templateEventName] = [
                     'blocks' => [

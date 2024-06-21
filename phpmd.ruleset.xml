@@ -31,7 +31,11 @@
     <rule ref="rulesets/design.xml/DepthOfInheritance" />
     <rule ref="rulesets/design.xml/CouplingBetweenObjects" />
     <rule ref="rulesets/design.xml/DevelopmentCodeFragment" />
-    <rule ref="rulesets/naming.xml/ShortVariable" />
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="minimum" value="2" />
+        </properties>
+    </rule>
     <rule ref="rulesets/naming.xml/LongVariable" />
     <rule ref="rulesets/naming.xml/ShortMethodName" />
     <rule ref="rulesets/naming.xml/ConstructorWithNameAsEnclosingClass" />
@@ -41,4 +45,6 @@
     <rule ref="rulesets/unusedcode.xml/UnusedLocalVariable" />
     <rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod" />
     <rule ref="rulesets/unusedcode.xml/UnusedFormalParameter" />
+
+    <exclude-pattern>src/Migrations/*.php</exclude-pattern>
 </ruleset>
