@@ -1,7 +1,7 @@
 {
     "name": "fifty-deg/sylius-scripts-plugin",
     "type": "sylius-plugin",
-    "description": "A plugin that let's you inject scripts and styles into your storefront from the admin panel.",
+    "description": "A plugin that let's you inject scripts into your storefront from the admin panel.",
     "keywords": [
         "sylius",
         "sylius-plugin",
@@ -26,6 +26,7 @@
         "friends-of-behat/suite-settings-extension": "^1.0",
         "friends-of-behat/symfony-extension": "^2.1",
         "friends-of-behat/variadic-extension": "^1.3",
+        "phpmd/phpmd": "@stable",
         "phpspec/phpspec": "^7.2",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "^1.8.1",
@@ -57,7 +58,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.12-dev"
+            "dev-develop": "dev",
         },
         "symfony": {
             "require": "^5.4 || ^6.0"
