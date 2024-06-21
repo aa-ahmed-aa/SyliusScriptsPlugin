@@ -3,11 +3,16 @@ FROM debian:bullseye
 WORKDIR /src/
 
 RUN apt-get update && \
-    apt-get install -y gnupg2 curl && \
+    apt-get install -y ca-certificates gnupg2 curl && \
     # Install node
-    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
+     | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
+    NODE_MAJOR=16 && \
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" \
+        > /etc/apt/sources.list.d/nodesource.list && \
     apt-get update && \
-    apt-get install -y --no-install-recommends nodejs
+    apt-get install -qy --no-install-recommends nodejs
 
 RUN mkdir -p /usr/local/nvm
 
@@ -31,4 +36,4 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends yarn && \
-    npm install -g npm
+    npm install -g npm@9
