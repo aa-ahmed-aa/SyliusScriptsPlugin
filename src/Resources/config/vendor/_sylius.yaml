@@ -6,12 +6,12 @@ sylius_grid:
                 options:
                     class: FiftyDeg\SyliusScriptsPlugin\Entity\Script
             fields:
-                id:
+                name:
                     type: string
-                    label: sylius.ui.title
+                    label: sylius.ui.name
                     sortable: true
             sorting:
-                id: asc
+                name: asc
             limits: [ 10, 25, 50, 100 ]
             actions:
                 main:

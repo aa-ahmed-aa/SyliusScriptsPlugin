@@ -28,6 +28,6 @@ printf "${CYAN}\r\n********************\r\n********************\r\n** 💡 YAML 
 docker exec -u root -it "${COMPOSE_PROJECT_NAME}_php" bash -c "cd tests/Application && XDEBUG_MODE=off php bin/console lint:yaml  ../../src/ ./config ../Behat"
 
 printf "${CYAN}\r\n********************\r\n********************\r\n** 💡 BEHAT ********\r\n********************\r\n********************\r\n\r\n${NC}"
-docker exec -u root -it "${COMPOSE_PROJECT_NAME}_php" bash -c "APP_ENV=test vendor/bin/behat --strict --tags='~@javascript'"
+docker exec -u root -it "${COMPOSE_PROJECT_NAME}_php" bash -c "APP_ENV=test XDEBUG_MODE=off php vendor/bin/behat --strict --tags='~@javascript'"
 
 exit 0

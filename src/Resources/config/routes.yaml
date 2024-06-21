@@ -6,5 +6,9 @@ app.fiftydeg_scripts_script_index:
         except: ['show']
         redirect: update
         grid: fiftydeg.sylius_scripts_plugin.entity.script
+        vars:
+            all:
+                templates:
+                    form: "@FiftyDegSyliusScriptsPlugin/Admin/Form/_scriptsForm.html.twig"
     type: sylius.resource
     prefix: admin

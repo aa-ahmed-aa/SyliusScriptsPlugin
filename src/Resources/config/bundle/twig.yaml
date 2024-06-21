@@ -1,0 +1,7 @@
+services:
+    app.fifty_deg.tik_tok.twig.extension.tik_tok_configs_twig_extension:
+        class: FiftyDeg\SyliusScriptsPlugin\Twig\FiftyDegScriptsExtension
+        arguments:
+            - '@sylius.context.channel'
+            - '@fiftydeg.sylius_scripts_plugin.repository.script_repository'
+        tags: ["twig.extension"]
