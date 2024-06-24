@@ -6,14 +6,12 @@
 
 
 ### Fixtures
-
-Fixtures are configured in `src/Resources/config/bundle/fixtures.yaml`.  
-Each time you start docker compose, fixtures are automatically executed (see `docker-compose.yaml`).  
-
+Each time you start the project via `docker compose`, fixtures are automatically executed (see `docker-compose.yaml`).  
+---
 <br/>
 
 <ul>
-<li><a href="doc/installation.md">Installation</a></li>
-<li><a href="doc/development.md">Development</a></li>
-<li><a href="doc/testing.md">Testing</a></li>
+<li><a href="./installation.md">Installation</a></li>
+<li><a href="./development.md">Development</a></li>
+<li><a href="./testing.md">Testing</a></li>
 </ul>
