@@ -1,4 +1,5 @@
 services:
+
     fiftydeg.sylius_scripts_plugin.menu.admin_menu_listener:
         class: FiftyDeg\SyliusScriptsPlugin\Menu\AdminMenuListener
         tags:
