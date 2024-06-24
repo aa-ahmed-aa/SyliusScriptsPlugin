@@ -1,7 +1,5 @@
 sylius_resource:
-
     resources:
-
         fiftydeg.sylius_scripts_plugin.entity.script:
             driver: doctrine/orm
             classes:
