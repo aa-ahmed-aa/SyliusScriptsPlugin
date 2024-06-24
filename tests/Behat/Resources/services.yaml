@@ -1,18 +1,12 @@
 services:
     _defaults: { public: true }
 
-    fiftydeg_sylius_scripts_plugin.context.ui.shop.welcome:
-        class: Tests\FiftyDeg\SyliusScriptsPlugin\Behat\Context\Ui\Shop\WelcomeContext
-        arguments:
-          - "@fiftydeg_sylius_scripts_plugin.page.shop.static_welcome"
-          - "@fiftydeg_sylius_scripts_plugin.page.shop.dynamic_welcome"
-
-    fiftydeg_sylius_scripts_plugin.page.shop.static_welcome:
-      class: Tests\FiftyDeg\SyliusScriptsPlugin\Behat\Page\Shop\StaticWelcomePage
+    fiftydeg_sylius_scripts_plugin.behat.page.shop.home_page:
+      class: Tests\FiftyDeg\SyliusScriptsPlugin\Behat\Page\Shop\HomePage
       parent: sylius.behat.symfony_page
-      public: false
 
-    fiftydeg_sylius_scripts_plugin.page.shop.dynamic_welcome:
-      class: Tests\FiftyDeg\SyliusScriptsPlugin\Behat\Page\Shop\DynamicWelcomePage
-      parent: sylius.behat.symfony_page
-      public: false
+
+    fiftydeg_sylius_scripts_plugin.behat.context.ui.shop.rendering_scripts_context:
+      class: Tests\FiftyDeg\SyliusScriptsPlugin\Behat\Context\Ui\Shop\RenderingScriptsContext
+      arguments:
+        - '@fiftydeg_sylius_scripts_plugin.behat.page.shop.home_page'
