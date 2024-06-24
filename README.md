@@ -17,13 +17,10 @@
     </a>
 </p>
 
-# Fifty Deg
+# About the plugin
+This plugin allows store managers to inject scripts (such as GTM or Structured Data) in those Sylius template events enabled by developers.
 
-## About US
-We are an Italian Digital Company focused on:
-- e-commerce development
-- custom Web App implementation
-- <a href="https://tinees.com/join-tinees/" target="_blank">Tinees</a>, our core project that aims to safeguard and sensitize people on the cultural, artistic and historical heritage of a nation.
+<img src="doc/images/screenshot.png" />
 
 ## Documentation
 
@@ -35,6 +32,14 @@ there you will find the <a href="https://docs.sylius.com/en/latest/plugin-develo
 <li><a href="doc/development.md">Development</a></li>
 <li><a href="doc/testing.md">Testing</a></li>
 </ul>
+
+# Fifty Deg
+
+## About US
+We are an Italian Digital Company focused on:
+- e-commerce development
+- custom Web App implementation
+- <a href="https://tinees.com/join-tinees/" target="_blank">Tinees</a>, our core project that aims to safeguard and sensitize people on the cultural, artistic and historical heritage of a nation.
 
 ## License
 This plugin's source code is completely free and released under the terms of the MIT license.
