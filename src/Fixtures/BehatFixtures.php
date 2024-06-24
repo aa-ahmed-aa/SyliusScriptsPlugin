@@ -14,14 +14,12 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 final class BehatFixtures extends AbstractFixture
 {
-
     public function __construct(
         private string $env,
         private ScriptRepositoryInterface $scriptRepository,
         private ChannelRepositoryInterface $channelRepository,
     ) {
     }
-
 
     public function getName(): string
     {
@@ -34,6 +32,7 @@ final class BehatFixtures extends AbstractFixture
             return;
         }
 
+        /** @var array<string,array<string,string>> $scriptOptions */
         $scriptOptions = $options['scripts'];
 
         foreach ($scriptOptions as $scriptOption) {
@@ -46,11 +45,13 @@ final class BehatFixtures extends AbstractFixture
             }
 
             $channelsCollection = new ArrayCollection([$channel]);
-
+            
             $script->setCurrentLocale($scriptOption['locale']);
             $script->setName($scriptOption['name']);
             $script->setTemplateEvent($scriptOption['template_event']);
             $script->setContent($scriptOption['content']);
+
+            // @phpstan-ignore-next-line
             $script->setChannels($channelsCollection);
 
             $this->scriptRepository->add($script);
@@ -59,6 +60,7 @@ final class BehatFixtures extends AbstractFixture
 
     protected function configureOptionsNode(ArrayNodeDefinition $optionsNode): void
     {
+        // @phpstan-ignore-next-line
         $optionsNode
             ->children()
                 ->arrayNode('scripts')

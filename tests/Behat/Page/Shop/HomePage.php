@@ -14,8 +14,9 @@ class HomePage extends SymfonyPage implements HomePageInterface
         return 'sylius_shop_homepage';
     }
 
-    public function getElementById(string $id): ?NodeElement {
-        return $this->getSession()->getPage()->waitFor(3, function () use ($id): ?NodeElement{
+    public function getElementById(string $id): ?NodeElement
+    {
+        return $this->getSession()->getPage()->waitFor(3, function () use ($id): ?NodeElement {
             return $this->getDocument()->findById($id);
         });
     }

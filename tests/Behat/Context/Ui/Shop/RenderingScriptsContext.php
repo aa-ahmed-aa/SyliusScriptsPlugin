@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
 final class RenderingScriptsContext implements Context
 {
     public function __construct(
-        private HomePageInterface $page, 
+        private HomePageInterface $page,
     ) {
     }
 

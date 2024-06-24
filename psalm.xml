@@ -17,18 +17,21 @@
         <PossiblyNullReference>
             <errorLevel type="suppress">
                 <file name="src/DependencyInjection/Configuration.php" />
+                <file name="src/Fixtures/BehatFixtures.php" />
             </errorLevel>
         </PossiblyNullReference>
 
         <UndefinedInterfaceMethod>
             <errorLevel type="suppress">
                 <file name="src/DependencyInjection/Configuration.php" />
+                <file name="src/Fixtures/BehatFixtures.php" />
             </errorLevel>
         </UndefinedInterfaceMethod>
 
         <MixedMethodCall>
             <errorLevel type="suppress">
                 <file name="src/DependencyInjection/Configuration.php" />
+                <file name="src/Fixtures/BehatFixtures.php" />
             </errorLevel>
         </MixedMethodCall>
 
@@ -45,5 +48,11 @@
                 <file name="src/Repository/ScriptTranslationRepositoryInterface.php" />
             </errorLevel>
         </MissingTemplateParam>
+
+        <ArgumentTypeCoercion>
+            <errorLevel type="suppress">
+                <file name="src/Fixtures/BehatFixtures.php" />
+            </errorLevel>
+        </ArgumentTypeCoercion>
     </issueHandlers>
 </psalm>
