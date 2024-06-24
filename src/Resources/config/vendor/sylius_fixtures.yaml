@@ -9,7 +9,7 @@ sylius_fixtures:
                                 name: 'Test Head Script', 
                                 template_event: 'sylius.shop.layout.head', 
                                 content: "
-                                    <script>
+                                    <script id='syliusShopLayoutHeadScript'>
                                         document.addEventListener('DOMContentLoaded', function () {
                                             const el = document.createElement('div');
                                             el.id = 'syliusShopLayoutHead';
@@ -24,7 +24,7 @@ sylius_fixtures:
                                 name: 'Test Before Body Script', 
                                 template_event: 'sylius.shop.layout.before_body', 
                                 content: "
-                                    <script>
+                                    <script id='syliusShopLayoutBeforeBodyScript'>
                                         document.addEventListener('DOMContentLoaded', function () {
                                             const el = document.createElement('div');
                                             el.id = 'syliusShopLayoutBeforeBody';
@@ -39,7 +39,7 @@ sylius_fixtures:
                                 name: 'Test After Body Script', 
                                 template_event: 'sylius.shop.layout.after_body', 
                                 content: "
-                                    <script>
+                                    <script id='syliusShopLayoutAfterBodyScript'>
                                         document.addEventListener('DOMContentLoaded', function () {
                                             const el = document.createElement('div');
                                             el.id = 'syliusShopLayoutAfterBody';
