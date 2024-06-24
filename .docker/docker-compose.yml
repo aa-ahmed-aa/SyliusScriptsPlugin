@@ -63,11 +63,12 @@ services:
         && yes | APP_ENV=${APP_ENV} php bin/console sylius:install:check-requirements
         && yes | APP_ENV=${APP_ENV} php bin/console sylius:install --no-interaction --verbose --env ${APP_ENV}
         && yes | APP_ENV=${APP_ENV} php bin/console sylius:fixtures:load default --no-interaction
+        && yes | APP_ENV=${APP_ENV} php bin/console sylius:fixtures:load fiftydeg --no-interaction
         && yes | APP_ENV=${APP_ENV} php bin/console sylius:install:assets
         && yes | APP_ENV=${APP_ENV} php bin/console sylius:theme:assets:install public
         && yes | APP_ENV=${APP_ENV} php bin/console asset:install
         && yes | APP_ENV=${APP_ENV} php bin/console doctrine:migrations:migrate
-        && php-fpm"
+        && APP_ENV=${APP_ENV} php-fpm"
 
   nginx:
     container_name: "${COMPOSE_PROJECT_NAME}_nginx"
