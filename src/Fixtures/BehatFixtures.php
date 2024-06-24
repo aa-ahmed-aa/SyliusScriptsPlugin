@@ -45,7 +45,7 @@ final class BehatFixtures extends AbstractFixture
             }
 
             $channelsCollection = new ArrayCollection([$channel]);
-            
+
             $script->setCurrentLocale($scriptOption['locale']);
             $script->setName($scriptOption['name']);
             $script->setTemplateEvent($scriptOption['template_event']);
