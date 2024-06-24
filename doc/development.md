@@ -6,7 +6,9 @@
 
 
 ### Fixtures
+
 Each time you start the project via `docker compose`, fixtures are automatically executed (see `docker-compose.yaml`).  
+
 ---
 <br/>
 
