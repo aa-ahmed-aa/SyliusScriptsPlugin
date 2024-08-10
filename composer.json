@@ -1,5 +1,5 @@
 {
-    "name": "fifty-deg/sylius-scripts-plugin",
+    "name": "aa-ahmed-aa/sylius-scripts-plugin",
     "type": "sylius-plugin",
     "description": "A plugin that let's you inject scripts into your storefront from the admin panel.",
     "keywords": [
@@ -10,7 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "sylius/sylius": "^1.11",
+        "sylius/sylius": "^1.12",
         "symfony/webpack-encore-bundle": "^1.15"
     },
     "require-dev": {
