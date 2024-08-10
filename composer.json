@@ -1,5 +1,5 @@
 {
-    "name": "aa-ahmed-aa/sylius-scripts-plugin",
+    "name": "fifty-deg/sylius-scripts-plugin",
     "type": "sylius-plugin",
     "description": "A plugin that let's you inject scripts into your storefront from the admin panel.",
     "keywords": [
